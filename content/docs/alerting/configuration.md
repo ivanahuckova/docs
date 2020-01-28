@@ -27,7 +27,7 @@ sending a HTTP POST request to the `/-/reload` endpoint.
 To specify which configuration file to load, use the `--config.file` flag.
 
 ```bash
-./alertmanager --config.file=simple.yml
+./alertmanager --config.file=alertmanager.yml
 ```
 
 The file is written in the [YAML format](http://en.wikipedia.org/wiki/YAML),
@@ -72,9 +72,9 @@ global:
   [ smtp_auth_password: <secret> ]
   # SMTP Auth using PLAIN.
   [ smtp_auth_identity: <string> ]
-  # SMTP Auth using CRAM-MD5. 
+  # SMTP Auth using CRAM-MD5.
   [ smtp_auth_secret: <secret> ]
-  # The default SMTP TLS requirement. 
+  # The default SMTP TLS requirement.
   # Note that Go does not support unencrypted connections to remote SMTP endpoints.
   [ smtp_require_tls: <bool> | default = true ]
 
@@ -137,10 +137,10 @@ current node.
 # be batched into a single group.
 #
 # To aggregate by all possible labels use the special value '...' as the sole label name, for example:
-# group_by: ['...'] 
-# This effectively disables aggregation entirely, passing through all 
-# alerts as-is. This is unlikely to be what you want, unless you have 
-# a very low alert volume or your upstream notification system performs 
+# group_by: ['...']
+# This effectively disables aggregation entirely, passing through all
+# alerts as-is. This is unlikely to be what you want, unless you have
+# a very low alert volume or your upstream notification system performs
 # its own grouping.
 [ group_by: '[' <labelname>, ... ']' ]
 
@@ -207,7 +207,7 @@ route:
 
 An inhibition rule mutes an alert (target) matching a set of matchers
 when an alert (source) exists that matches another set of matchers.
-Both target and source alerts must have the same label values 
+Both target and source alerts must have the same label values
 for the label names in the `equal` list.
 
 Semantically, a missing label and a label with an empty value are the same
